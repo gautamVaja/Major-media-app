@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 let DEV_URL = "";
 if (process.env.NODE_ENV === "development") {
-  DEV_URL = "http://localhost:3000";
+  var cors = require("cors");
+  app.use(cors());
 }
 class App extends Component {
   constructor(props) {

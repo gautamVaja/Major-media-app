@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+let DEV_URL = "";
+if (process.env.NODE_ENV === "development") {
+  DEV_URL = "http://localhost:3000";
+}
 class App extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +12,7 @@ class App extends Component {
   }
   async componentDidMount() {
     // Call self-hosted API to get users response
-    const res = await fetch("/users");
+    const res = await fetch(`${DEV_URL}/users`);
     const users = await res.json();
     this.setState({
       users,
